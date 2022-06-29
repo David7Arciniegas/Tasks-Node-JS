@@ -1,27 +1,27 @@
-const express = require('express');
+const express = require("express");
 
 // Controllers
 const {
-	getAllUsers,
-	createUser,
-	updateUser,
-	deleteUser,
-} = require('../controllers/users.controller');
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+} = require("../controllers/users.controller");
 
 // Middlewares
 const {
-	createUserValidators,
-} = require('../middlewares/validators.middleware');
-const { userExists } = require('../middlewares/users.middleware');
+  createUserValidators,
+} = require("../middlewares/validators.middleware");
+const { userExists } = require("../middlewares/users.middleware");
 
 const usersRouter = express.Router();
 
-usersRouter.get('/', getAllUsers);
+usersRouter.get("/", getAllUsers);
 
-usersRouter.post('/', createUserValidators, createUser);
+usersRouter.post("/", createUserValidators, createUser);
 
-usersRouter.patch('/:id', userExists, updateUser);
+usersRouter.patch("/:id", userExists, updateUser);
 
-usersRouter.delete('/:id', userExists, deleteUser);
+usersRouter.delete("/:id", userExists, deleteUser);
 
 module.exports = { usersRouter };
