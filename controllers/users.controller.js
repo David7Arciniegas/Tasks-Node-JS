@@ -4,6 +4,7 @@ const { User } = require('../models/users.model');
 // Utils
 const { catchAsync } = require('../utils/catchAsync.util');
 
+
 const getAllUsers = catchAsync(async (req, res, next) => {
 	const users = await User.findAll();
 
@@ -47,6 +48,9 @@ const updateUser = catchAsync(async (req, res, next) => {
 
 	res.status(204).json({ status: 'success' });
 });
+
+
+
 
 const deleteUser = catchAsync(async (req, res, next) => {
 	const { id } = req.params;
